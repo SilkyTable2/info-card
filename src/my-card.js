@@ -1,12 +1,12 @@
 import { LitElement, html, css } from 'lit';
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+
 
 class MyCard extends LitElement {
   static properties = {
     header: { type: String },
   }
-
+  
   static styles = css`
   button {
     padding: 8px 70px;
@@ -114,7 +114,13 @@ class MyCard extends LitElement {
     </div>
       </p>
     `;
+    
   }
+
+  
 }
 
+
+
 customElements.define('my-card', MyCard);
+

@@ -22,4 +22,5 @@ function Template({ title, backgroundColor }) {
 export const App = Template.bind({});
 App.args = {
   title: 'My app',
+  
 };
