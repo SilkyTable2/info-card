@@ -3,8 +3,16 @@ import { LitElement, html, css } from 'lit';
 const customImage = new URL('../assets/johncena.jpg', import.meta.url).href;
 
 export class InfoCard extends LitElement {
-  static properties = {
-    version: {},
+  static get properties() {
+    return {
+      heading: {
+        type: String,
+        reflect: true
+      },
+      details: {
+        type: String
+      }
+    }
   }
 
   static get styles() {
@@ -89,7 +97,8 @@ export class InfoCard extends LitElement {
 
   constructor() {
     super();
-    this.version = 'Hello, world';
+    this.heading = 'John Cena Bing Chilling';
+    this.details = 'Image above depicts Actor and WWE Wrestler John Cena attempting to promote his upcoming movie, Fast and the Furious 9, in mandarin towards the chinese viewer market after previously making a controversial claim. The image comes from a video, famously known for its ridiculous scenario and for its famous line "bīng qí lín", or "Bing Chilling" as what it is commonly known as around the internet.';
   }
 
   render() {
@@ -97,7 +106,7 @@ export class InfoCard extends LitElement {
     
       <div id="card" class="size">
         <div id="head" class="top">
-          <h1> Thursday Homework (Week 2) </h1>
+          <h1> ${this.heading} </h1>
         </div>
         <div class="image">
           <img src="${customImage}" alt="Bing Chilling">
@@ -105,7 +114,7 @@ export class InfoCard extends LitElement {
     
         </div>
         <div id="descript" class="desc">
-          Image above depicts Actor and WWE Wrestler John Cena attempting to promote his upcoming movie, Fast and the Furious 9, in mandarin towards the chinese viewer market after previously making a controversial claim. The image comes from a video, famously known for its ridiculous scenario and for its famous line "bīng qí lín", or "Bing Chilling" as what it is commonly known as around the internet.
+          ${this.details}
         </div>
       </div>
     `;
