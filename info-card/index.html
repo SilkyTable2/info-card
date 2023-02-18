@@ -25,20 +25,22 @@
     <button class="backgroundbtn cardbtn"> Dark Mode/Light Mode </button>
     <button class="deletebtn cardbtn"> Delete Last Instance </button>
     <button class="headingchangebtn cardbtn"> Change Heading </button>
+    <button class="haxbtn"> Details </button>
   </div>
-  <info-card></info-card>
-
+  <div id="app">
+    <info-card></info-card>
+  </div>
   <script type="module" src="./src/info-card.js"></script>
   <script>
     document.body.style.backgroundColor="white";
 
-    shadowRoot.querySelector('.cardbtn').addEventListener("click", (e) => {
-      const card = document.getElementById("card");
+    document.querySelector('.cardbtn').addEventListener("click", (e) => {
+      const card = document.querySelector('info-card');
       const copy = card.cloneNode(true);
-      shadowRoot.body.appendChild(copy);
+      document.querySelector('#app').appendChild(copy);
     })
 
-    shadowRoot.querySelector('.backgroundbtn').addEventListener("click", (e) => {
+    document.querySelector('.backgroundbtn').addEventListener("click", (e) => {
       if (document.body.style.backgroundColor=="white"){
         document.body.style.backgroundColor="black";
       }
@@ -48,12 +50,12 @@
     })
 
     document.querySelector('.deletebtn').addEventListener("click", (e) => {
-      const deleter = shadowRoot.getElementById("card");
-      deleter.remove(deleter.lastElementChild);
+      const deleter = document.querySelector('#app :last-child');
+      deleter.remove();
       })
 
     document.querySelector('.haxbtn').addEventListener("click", (e) => {
-      var descRevealer = document.getElementById("descript");
+      var descRevealer = document.querySelector('info-card').shadowRoot.getElementById("descript");
       if (descRevealer.style.visibility === "hidden") {
         descRevealer.style.visibility = "visible";
       }
@@ -63,9 +65,8 @@
       })
 
       document.querySelector('.headingchangebtn').addEventListener("click", (e) => {
-    const headset = document.getElementById("head");
-    headset.innerHTML = "something else";
-    })
+        document.querySelector('info-card').shadowRoot.getElementById("head").innerHTML = "<h1>Something Else<h1>";
+      })
   </script>
 </body>
 
