@@ -16,6 +16,7 @@
     "start": "web-dev-server"
   },
   "dependencies": {
+    "esbuild": "^0.17.8",
     "lit": "^2.0.2"
   },
   "devDependencies": {
