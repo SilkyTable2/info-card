@@ -15,6 +15,9 @@
       font-family: sans-serif;
       background-color: #ededed;
     }
+    :host([accent]).info-card{
+      background-color: red;
+    }
   </style>
   <title>info-card</title>
 </head>
@@ -28,7 +31,14 @@
     <button class="haxbtn"> Details </button>
   </div>
   <div id="app">
-    <info-card></info-card>
+    <info-card>
+      <p>dtyuggg</p>
+      <p>dtyuggg</p>
+      <p>dtyuggg</p>
+      <p>dtyuggg</p>
+      <p>dtyuggg</p>
+      <p>dtyuggg</p>
+    </info-card>
   </div>
 
 
@@ -45,17 +55,13 @@
     })
 
     document.querySelector('.backgroundbtn').addEventListener("click", (e) => {
-      if (document.body.style.backgroundColor=="white"){
-        document.body.style.backgroundColor="black";
-      }
-      else if (document.body.style.backgroundColor="black") {
-        document.body.style.backgroundColor="white"
-      }
+      document.querySelector('info-card').accent = true;
     })
 
     document.querySelector('.deletebtn').addEventListener("click", (e) => {
       const deleter = document.querySelector('#app :last-child');
       deleter.remove();
+      
       })
 
     document.querySelector('.haxbtn').addEventListener("click", (e) => {
