@@ -119,11 +119,14 @@ export class InfoCard extends LitElement {
           <meme-maker image-url="${customImage}" 
           top-text="Bing Chilling" bottom-text="bing chilling"></meme-maker> 
           
-    
+        <details>
+          <summary>Details</summary>
+          <p>
+            ${this.details}
+          </p>
+        </details>
+
         </div>
-        <slot id="descript" class="desc">
-          ${this.details}
-        </slot>
       </div>
     `;
   }
