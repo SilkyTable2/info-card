@@ -1,9 +1,11 @@
 import { LitElement, html, css } from 'lit';
 import { MemeMaker } from '@lrnwebcomponents/meme-maker';
 
+
 const customImage = new URL('../assets/johncena.jpg', import.meta.url).href;
 
 export class InfoCard extends LitElement {
+
   static get properties() {
     return {
       heading: {
@@ -89,7 +91,6 @@ export class InfoCard extends LitElement {
         .top {
           padding: 4px 0px;
         }
-
       }
       meme-maker {
         --meme-maker-font-size: 25px;
@@ -105,6 +106,7 @@ export class InfoCard extends LitElement {
     this.accent = false;
     this.heading = 'John Cena Bing Chilling';
     this.details = 'Image above depicts Actor and WWE Wrestler John Cena attempting to promote his upcoming movie, Fast and the Furious 9, in mandarin towards the chinese viewer market after previously making a controversial claim. The image comes from a video, famously known for its ridiculous scenario and for its famous line "bīng qí lín", or "Bing Chilling" as what it is commonly known as around the internet.';
+  
   }
 
   render() {
@@ -128,6 +130,8 @@ export class InfoCard extends LitElement {
 
         </div>
       </div>
+
+      
     `;
   }
 }
