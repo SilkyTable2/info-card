@@ -12,9 +12,6 @@ export class InfoCard extends LitElement {
         type: String,
         reflect: true
       },
-      details: {
-        type: String
-      },
       accent: {
         type: Boolean,
         reflect: true
@@ -74,6 +71,8 @@ export class InfoCard extends LitElement {
       }
       img {width: 200px}
 
+      
+
       @media screen and (max-width: 500px){
         .size {
           scale: 75%;
@@ -105,14 +104,11 @@ export class InfoCard extends LitElement {
     super();
     this.accent = false;
     this.heading = 'John Cena Bing Chilling';
-    this.details = 'Image above depicts Actor and WWE Wrestler John Cena attempting to promote his upcoming movie, Fast and the Furious 9, in mandarin towards the chinese viewer market after previously making a controversial claim. The image comes from a video, famously known for its ridiculous scenario and for its famous line "bīng qí lín", or "Bing Chilling" as what it is commonly known as around the internet.';
   
   }
 
   render() {
     return html`
-      
-
       <div id="card" class="size">
         <div id="head" class="top">
           <h1> ${this.heading} </h1>
@@ -121,10 +117,10 @@ export class InfoCard extends LitElement {
           <meme-maker image-url="${customImage}" 
           top-text="Bing Chilling" bottom-text="bing chilling"></meme-maker> 
           
-        <details>
+        <details class="details">
           <summary>Details</summary>
           <p>
-            ${this.details}
+            <slot></slot>
           </p>
         </details>
 

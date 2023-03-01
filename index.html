@@ -24,13 +24,16 @@
 
 <body>
   <div>
-    <button class="cardbtn"> Duplicate </button>
-    <button class="backgroundbtn cardbtn"> Dark Mode/Light Mode </button>
-    <button class="deletebtn cardbtn"> Delete Last Instance </button>
-    <button class="headingchangebtn cardbtn"> Change Heading </button>
+    <button class="cardbtn">Duplicate</button>
+    <button class="backgroundbtn cardbtn">Dark Mode/Light Mode</button>
+    <button class="deletebtn cardbtn">Delete Last Instance</button>
+    <button class="headingchangebtn cardbtn">Change Heading</button>
+    <button toggle-dropdown="">Toggle Details</button>
   </div>
   <div id="app">
-    <info-card></info-card>
+    <info-card>
+      Image above depicts Actor and WWE Wrestler John Cena attempting to promote his upcoming movie, Fast and the Furious 9, in mandarin towards the chinese viewer market after previously making a controversial claim. The image comes from a video, famously known for its ridiculous scenario and for its famous line "bīng qí lín", or "Bing Chilling" as what it is commonly known as around the internet.
+    </info-card>
   </div>
 
 
@@ -65,6 +68,17 @@
       document.querySelector('.headingchangebtn').addEventListener("click", (e) => { //renames heading to "Something Else"
         document.querySelector('info-card').shadowRoot.getElementById("head").innerHTML = "<h1>Something Else<h1>";
       })
+
+      document.querySelector('button[toggle-dropdown]').addEventListener("click", (e) => {
+        const togDetail = document.querySelector("info-card").shadowRoot.querySelector("details");
+        console.log(togDetail);
+        if (togDetail.getAttribute('open')) {
+          togDetail.removeAttribute('open');
+        }
+        else {
+          togDetail.setAttribute('open','open');
+        }
+      });
 
       //-------------------
   </script>
